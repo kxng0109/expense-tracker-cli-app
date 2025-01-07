@@ -75,9 +75,9 @@ Get a summary of expenses:
   node app.js summary -m 8
   ```
 - **Specific year**:
-```bash
-node app.js summary -y 2024
-```
+  ```bash
+  node app.js summary -y 2024
+  ```
 
 ---
 
@@ -90,7 +90,7 @@ expense-tracker/
 │   ├── services/          # Core application logic
 │   └── utils/             # Helper utilities
 ├── exp.json               # Expense storage file
-├── app.js               # Entry point for the CLI
+├── app.js                 # Entry point for the CLI
 ├── package.json           # Dependencies and scripts
 ├── README.md              # Project documentation
 ```
