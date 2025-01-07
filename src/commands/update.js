@@ -1,11 +1,10 @@
+import chalk from "chalk";
 import { Command } from "commander";
 import { updateExpense } from "../services/expenseService.js";
 import myParseInt from "../utils/inputParser.js";
-const program = new Command();
 
 //Update expenses
-const updateCommand = program
-	.command("update")
+const updateCommand = new Command("update")
 	.description(
 		"update the value/s of an existing product by providing it's id",
 	)
@@ -15,15 +14,11 @@ const updateCommand = program
 	.option("-a, --amount <value>", "Product price", myParseInt)
 	.action((options) => {
 		if (!options.id) {
-			console.error("ID not specified");
+			console.error(chalk.red("ID not specified"));
 		} else if (!options.description && !options.amount) {
-			console.log("No changes made.");
+			console.log(chalk.green("No changes made."));
 		} else {
-			updateExpense(
-				options.id,
-				options.description,
-				options.amount,
-			);
+			updateExpense(options.id, options.description, options.amount);
 		}
 	});
 
